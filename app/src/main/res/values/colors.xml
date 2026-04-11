@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="pop_brown_accent">#D3A988</color> <color name="pop_blue_bg">#CEDEF5</color>     <color name="pop_coral_critical">#D06E67</color> <color name="pop_pink_card">#F8D3D2</color>   <color name="colorPrimary">#D3A988</color>
+    <color name="colorPrimaryDark">#D06E67</color>
+    <color name="colorAccent">#CEDEF5</color>
 </resources>
