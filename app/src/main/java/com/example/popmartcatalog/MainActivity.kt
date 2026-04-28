@@ -36,14 +36,18 @@ class MainActivity : AppCompatActivity() {
         // 3. Menampilkan data ke layar
         showRecyclerList()
 
-        // 4. Validasi Input (If-Else)
+        // 4. Validasi Input dan Panggil Algoritma Search
         btnSearch.setOnClickListener {
             val query = edtSearch.text.toString().trim()
             if (query.isEmpty()) {
                 edtSearch.error = "Nama karakter tidak boleh kosong!"
                 Toast.makeText(this@MainActivity, "Masukkan nama produk Pop Mart", Toast.LENGTH_SHORT).show()
+
+                // Jika kosong, kembalikan tampilan ke daftar semula (semua karakter)
+                showRecyclerList()
             } else {
-                Toast.makeText(this@MainActivity, "Mencari: $query", Toast.LENGTH_SHORT).show()
+                // Jalankan algoritma pencarian
+                searchPopMart(query)
             }
         }
 
@@ -59,5 +63,27 @@ class MainActivity : AppCompatActivity() {
         rvPopMart.layoutManager = LinearLayoutManager(this)
         val listPopMartAdapter = ListPopMartAdapter(list)
         rvPopMart.adapter = listPopMartAdapter
+    }
+
+    // Algoritma Sequential Search
+    private fun searchPopMart(query: String) {
+        val filteredList = ArrayList<PopMart>() // Keranjang baru untuk hasil pencarian
+
+        // Mengecek satu per satu data di gudang utama
+        for (item in list) {
+            // Jika nama atau seri mengandung kata yang dicari (ignoreCase = abaikan huruf besar/kecil)
+            if (item.name.contains(query, ignoreCase = true) || item.series.contains(query, ignoreCase = true)) {
+                filteredList.add(item) // Masukkan ke keranjang hasil
+            }
+        }
+
+        // Panggil Adapter lagi untuk menampilkan keranjang hasil pencarian ke layar
+        val listPopMartAdapter = ListPopMartAdapter(filteredList)
+        rvPopMart.adapter = listPopMartAdapter
+
+        // Jika keranjang kosong (tidak ketemu)
+        if (filteredList.isEmpty()) {
+            Toast.makeText(this, "Karakter '$query' tidak ditemukan", Toast.LENGTH_SHORT).show()
+        }
     }
 }
