@@ -36,14 +36,32 @@ class MainActivity : AppCompatActivity() {
         // 3. Menampilkan daftar karakter pertama kali
         showRecyclerList()
 
-        // 4. Logika Tombol Cari (Sequential Search)
+        // 4. Logika Tombol Cari (Sequential Search) dengan Validasi & Pengaman
         btnSearch.setOnClickListener {
             val query = edtSearch.text.toString().trim()
             if (query.isEmpty()) {
                 edtSearch.error = "Nama tidak boleh kosong!"
-                showRecyclerList() // Tampilkan semua jika kosong
-            } else {
+                showRecyclerList()
+                return@setOnClickListener
+            }
+
+            // Validasi 2: Karakter Aneh
+            // Regex ini HANYA mengizinkan huruf, angka, dan spasi
+            val regexPengaman = "^[a-zA-Z0-9 ]+$".toRegex()
+            if (!regexPengaman.matches(query)) {
+                edtSearch.error = "Gunakan huruf dan angka saja!"
+                Toast.makeText(this, "Karakter tidak valid!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Try-Catch & Logcat NIM
+            try {
+                android.util.Log.d("UAS_LOGCAT", "Pencarian Pop Mart dijalankan oleh Luna - NIM: 42430044")
                 searchPopMart(query)
+
+            } catch (e: Exception) {
+                android.util.Log.e("UAS_LOGCAT", "Error pencarian: ${e.message}")
+                Toast.makeText(this, "Terjadi kesalahan sistem saat mencari", Toast.LENGTH_SHORT).show()
             }
         }
 
