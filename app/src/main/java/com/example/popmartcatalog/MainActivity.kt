@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 
             // Try-Catch & Logcat NIM
             try {
-                android.util.Log.d("UAS_LOGCAT", "Pencarian Pop Mart dijalankan oleh Luna - NIM: 42430044")
+                android.util.Log.d("UAS_LOGCAT", "Pencarian Pop Mart dijalankan oleh Luna - NIM: 42430045")
                 searchPopMart(query)
 
             } catch (e: Exception) {
