@@ -1,10 +1,8 @@
 # 🎁 POP MART CATALOG
 
-[#-pop-mart-catalog](#-pop-mart-catalog)
 
 ### *Collect. Display. Search.*
 
-[#collect-display-search](#collect-display-search)
 
 [![Kotlin](https://img.shields.io/badge/Kotlin-Android-orange?style=for-the-badge&logo=kotlin)](https://img.shields.io/badge/Kotlin-Android-orange?style=for-the-badge&logo=kotlin) [![Android Studio](https://img.shields.io/badge/Android%20Studio-Mobile%20App-3DDC84?style=for-the-badge&logo=androidstudio)](https://img.shields.io/badge/Android%20Studio-Mobile%20App-3DDC84?style=for-the-badge&logo=androidstudio) [![XML](https://img.shields.io/badge/XML-Layout-blue?style=for-the-badge)](https://img.shields.io/badge/XML-Layout-blue?style=for-the-badge) [![Status](https://img.shields.io/badge/Status-UAS%20Project-success?style=for-the-badge)](https://img.shields.io/badge/Status-UAS%20Project-success?style=for-the-badge)
 
@@ -12,7 +10,6 @@
 
 ## Identitas
 
-[#identitas](#identitas)
 
 | Keterangan | Data |
 | --- | --- |
@@ -27,7 +24,6 @@
 
 ## Abstract
 
-[#abstract](#abstract)
 
 Aplikasi **Pop Mart Catalog** merupakan aplikasi katalog dan pencarian data Pop Mart berbasis Android. Aplikasi ini dikembangkan menggunakan **Kotlin**, **XML Layout**, dan penyimpanan data sederhana berbasis **ArrayList** tanpa database eksternal. Sistem menyediakan fitur daftar Pop Mart, detail Pop Mart, pencarian data menggunakan **Linear Search**, pengurutan data menggunakan **Sorting**, validasi input, penanganan error menggunakan **try-catch**, serta pencatatan aktivitas aplikasi melalui **Logcat** dengan tag NIM.
 
@@ -37,7 +33,6 @@ Aplikasi **Pop Mart Catalog** merupakan aplikasi katalog dan pencarian data Pop 
 
 ## I. Introduction
 
-[#i-introduction](#i-introduction)
 
 Proyek ini dibuat sebagai implementasi UAS mata kuliah **Pemrograman Seluler** dengan pendekatan Project-Based Learning. Tema yang dipilih adalah **Katalog Pop Mart** karena merupakan koleksi boneka vinyl yang populer dan cocok dikembangkan menjadi aplikasi katalog dengan desain yang menarik dan responsif.
 
@@ -47,7 +42,6 @@ Tujuan utama aplikasi ini adalah menampilkan data Pop Mart, menyediakan fitur pe
 
 ## II. System Design
 
-[#ii-system-design](#ii-system-design)
 
 Aplikasi terdiri dari dua halaman utama:
 
@@ -71,11 +65,9 @@ com.example.popmartcatalog
 
 ## III. Implementation
 
-[#iii-implementation](#iii-implementation)
 
 ### A. Data Model
 
-[#a-data-model](#a-data-model)
 
 Data Pop Mart disimpan dalam model `PopMart` dengan atribut utama seperti nama, series, harga, status, dan gambar.
 
@@ -92,7 +84,6 @@ data class PopMart(
 
 ### B. ArrayList Dataset
 
-[#b-arraylist-dataset](#b-arraylist-dataset)
 
 Data katalog disimpan menggunakan `ArrayList` pada `PopMartData.kt`. Data ini digunakan sebagai sumber utama untuk RecyclerView, search, sorting, dan detail Pop Mart.
 
@@ -136,7 +127,6 @@ object PopMartData {
 
 ### C. Linear Search
 
-[#c-linear-search](#c-linear-search)
 
 Fitur pencarian dilakukan secara manual menggunakan Linear Search dengan cara memeriksa setiap data Pop Mart satu per satu berdasarkan keyword nama atau series Pop Mart.
 
@@ -158,7 +148,6 @@ private fun searchPopMart(query: String) {
 
 ### D. Sorting
 
-[#d-sorting](#d-sorting)
 
 Pengurutan data A-Z dan Z-A menggunakan fungsi bawaan Kotlin `sortBy` dan `sortByDescending` berdasarkan nama Pop Mart.
 
@@ -180,7 +169,6 @@ btnSortZA.setOnClickListener {
 
 ### E. Intent Navigation
 
-[#e-intent-navigation](#e-intent-navigation)
 
 Navigasi antar halaman menggunakan Intent:
 
@@ -198,7 +186,6 @@ holder.itemView.setOnClickListener {
 
 ### F. Validation, Try-Catch, and Logcat
 
-[#f-validation-try-catch-and-logcat](#f-validation-try-catch-and-logcat)
 
 MainActivity menggunakan validasi `if-else` untuk mengecek input kosong dan validasi karakter menggunakan Regex. Error ditangani dengan `try-catch`. Aktivitas aplikasi dicatat menggunakan Logcat dengan tag:
 
@@ -236,7 +223,6 @@ btnSearch.setOnClickListener {
 
 ## IV. Module Compliance
 
-[#iv-module-compliance](#iv-module-compliance)
 
 | Modul | Implementasi |
 | --- | --- |
@@ -250,11 +236,46 @@ btnSearch.setOnClickListener {
 
 ## V. User Interface Documentation
 
-[#v-user-interface-documentation](#v-user-interface-documentation)
 
 ### A. Main Screen
 
-[#a-main-screen](#a-main-screen)
+<table align="center">
+  <tr>
+    <td align="center"><b>Tampilan Portrait</b></td>
+    <td align="center"><b>Tampilan Landscape</b></td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/85f05f2b-72ff-4d00-8912-af95d7a27512" width="180" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/017cd852-2a93-4e0d-a14d-d6d24a25788d" width="380" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><i>Halaman Utama (Tegak)</i></td>
+    <td align="center"><i>Halaman Utama (Mendatar)</i></td>
+  </tr>
+</table>
+
+<table align="center">
+  <tr>
+    <td align="center"><b>Hasil Sorting A-Z</b></td>
+    <td align="center"><b>Hasil Sorting Z-A</b></td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/9baee616-c544-4875-81ee-3c9bd1605fc0" width="180" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/741640d0-1955-4459-8b20-dafcf85ee29f" width="180" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><i>Urutan: A ke Z</i></td>
+    <td align="center"><i>Urutan: Z ke A</i></td>
+  </tr>
+</table>
 
 Halaman utama menampilkan daftar Pop Mart dalam format card dengan RecyclerView, dilengkapi dengan fitur pencarian, sorting A-Z dan Z-A.
 
@@ -267,7 +288,25 @@ Halaman utama menampilkan daftar Pop Mart dalam format card dengan RecyclerView,
 
 ### B. Detail Screen
 
-[#b-detail-screen](#b-detail-screen)
+<table align="center">
+  <tr>
+    <td align="center"><b>Fitur Pencarian</b></td>
+    <td align="center"><b>Halaman Detail Item</b></td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/494be7cc-273c-47a5-aab8-336407703447" width="180" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/fe95d40d-d80a-4c1a-ad20-ead50b97b60a" width="180" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><i>Hasil Pencarian: "Crybaby"</i></td>
+    <td align="center"><i>Informasi Detail Karakter</i></td>
+  </tr>
+</table>
+
 
 Halaman detail menampilkan informasi lengkap dari Pop Mart yang dipilih.
 
@@ -279,11 +318,25 @@ Halaman detail menampilkan informasi lengkap dari Pop Mart yang dipilih.
 - Harga dalam format Rupiah
 - Status ketersediaan dengan background dinamis
 
+### C. Logcat Validation (Authenticity & Debugging)
+Bagian ini menampilkan rekam jejak aktivitas sistem yang membuktikan fungsionalitas fitur dan orisinalitas pengembang. Logcat digunakan untuk memantau apakah alur program berjalan sesuai rencana, terutama saat menangani input dari pengguna.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c603a312-454b-455f-9410-d18c54d01594" width="800" />
+</p>
+
+
+Analisis Rekaman Log:
+
+Otentikasi Pengembang: Pesan log secara spesifik mencantumkan nama Luna dan NIM 42430045, yang membuktikan bahwa kode dijalankan langsung oleh pemilik proyek.
+
+Filter Tag UAS_LOGCAT: Penggunaan tag khusus memudahkan proses debugging untuk memisahkan pesan aplikasi dari ribuan log sistem Android lainnya.
+
+Keamanan Try-Catch: Logcat ini juga menjadi bukti bahwa blok try-catch berhasil melewati fase kritis saat melakukan pemrosesan data tanpa terjadi crash atau force close.
 ---
 
 ## VI. Testing Result
 
-[#vi-testing-result](#vi-testing-result)
 
 | No | Test Case | Expected Result | Status |
 | --- | --- | --- | --- |
@@ -303,7 +356,6 @@ Halaman detail menampilkan informasi lengkap dari Pop Mart yang dipilih.
 
 ## VII. Project Workflow
 
-[#vii-project-workflow](#vii-project-workflow)
 
 Pengembangan dilakukan secara bertahap dengan fokus pada setiap modul pembelajaran.
 
@@ -320,31 +372,24 @@ Pengembangan dilakukan secara bertahap dengan fokus pada setiap modul pembelajar
 
 ## VIII. How to Run
 
-[#viii-how-to-run](#viii-how-to-run)
 
 1. Clone atau download repository ini.
 2. Buka project menggunakan Android Studio.
-3. Pastikan gradle sync berhasil (jika ada error, ikuti FIXES_APPLIED.md dan COMPLETE_FIX_GUIDE.md).
-4. Pilih emulator Android atau perangkat fisik yang terhubung.
-5. Klik Run atau tekan Shift+F10.
-6. Untuk melihat Logcat, gunakan filter tag:
+3. Pastikan proses **Gradle Sync** berhasil dan status perangkat (HP/Emulator) sudah terhubung.
+4. Pilih perangkat fisik (disarankan) atau emulator Android.
+5. Klik tombol **Run** atau tekan `Shift + F10`.
+6. Untuk melihat bukti otentikasi di Logcat, gunakan filter tag:
+
 
 ```
 42430045
 ```
 
-### Requirements
-
-- Android Studio Arctic Fox atau lebih baru
-- Android SDK 24 (minSdk) hingga SDK 36 (targetSdk)
-- Kotlin 1.9.22 atau kompatibel
-- Java 11
 
 ---
 
 ## IX. Project Structure
 
-[#ix-project-structure](#ix-project-structure)
 
 ```
 PopMartCatalog/
@@ -398,7 +443,6 @@ PopMartCatalog/
 
 ## X. Key Features
 
-[#x-key-features](#x-key-features)
 
 ### ✨ Core Features
 - **Daftar Pop Mart**: Tampilkan semua Pop Mart dalam format card yang menarik
@@ -417,23 +461,9 @@ PopMartCatalog/
 
 ---
 
-## XI. Error Fixes & Build Guide
 
-[#xi-error-fixes--build-guide](#xi-error-fixes--build-guide)
+## XI. Conclusion
 
-Jika Anda mengalami error saat build atau sync, ada 3 file dokumentasi yang tersedia:
-
-1. **FIXES_APPLIED.md** - Ringkasan error awal dan perbaikannya
-2. **COMPLETE_FIX_GUIDE.md** - Panduan lengkap dengan konfigurasi akhir
-3. **build_gradle_ROOT.kts** - Konfigurasi file build.gradle.kts di level root
-
-Ikuti panduan di file-file tersebut untuk mengatasi masalah build.
-
----
-
-## XII. Conclusion
-
-[#xii-conclusion](#xii-conclusion)
 
 Aplikasi **Pop Mart Catalog** berhasil dibuat sesuai ketentuan UAS Pemrograman Seluler. Aplikasi ini mengimplementasikan UI responsif dengan RecyclerView, Intent untuk navigasi, ArrayList untuk penyimpanan data, Linear Search untuk fitur pencarian, Sorting untuk pengurutan, validasi input dengan regex, try-catch untuk error handling, dan Logcat untuk dokumentasi aktivitas.
 
@@ -441,7 +471,6 @@ Aplikasi **Pop Mart Catalog** berhasil dibuat sesuai ketentuan UAS Pemrograman S
 
 ### ✨ Collect Your Favorites. Display with Pride.
 
-[#-collect-your-favorites-display-with-pride](#-collect-your-favorites-display-with-pride)
 
 **UAS Pemrograman Seluler — 2026**
 
@@ -449,7 +478,6 @@ Aplikasi **Pop Mart Catalog** berhasil dibuat sesuai ketentuan UAS Pemrograman S
 
 ## Quick Links
 
-[#quick-links](#quick-links)
 
 - 📱 [Android Documentation](https://developer.android.com/)
 - 🎨 [Material Design](https://material.io/design)
